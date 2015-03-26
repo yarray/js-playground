@@ -1,0 +1,6 @@
+:root {
+    --color: blue;
+}
+
+@import 'h.css';
+

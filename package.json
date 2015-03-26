@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "page": "^1.6.1"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "del": "^1.1.1",
+    "es6ify": "^1.6.0",
+    "gulp": "^3.8.11",
+    "gulp-csso": "^1.0.0",
+    "gulp-jshint": "^1.9.4",
+    "gulp-myth": "^1.0.2",
+    "gulp-serve": "^0.3.1",
+    "gulp-sourcemaps": "^1.5.1",
+    "jest": "^0.1.39",
+    "merge-stream": "^0.1.7",
+    "uglifyify": "^3.0.1",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
