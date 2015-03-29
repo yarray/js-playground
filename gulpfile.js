@@ -4,6 +4,7 @@
 // browserify
 var browserify = require('browserify');
 var es6ify = require('es6ify');
+var babelify = require('babelify');
 var uglifyify = require('uglifyify');
 var source = require('vinyl-source-stream');
 
@@ -49,8 +50,7 @@ gulp.task('build', function() {
 
     var scripts =
         browserify('./app/scripts/app.js')
-        .add(es6ify.runtime)
-        .transform(es6ify)
+        .transform(babelify)
         .transform(uglifyify)
         .bundle()
         .pipe(source('app.js'))
