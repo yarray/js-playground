@@ -1,3 +1,3 @@
-module.export = function sum(a, b) {
-    return a + b + 1;
+module.exports = function sum(a, b) {
+    return a + b;
 };

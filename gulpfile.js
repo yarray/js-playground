@@ -4,7 +4,6 @@
 // browserify
 var browserify = require('browserify');
 var uglifyify = require('uglifyify');
-var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 
 // gulp
@@ -12,10 +11,9 @@ var gulp = require('gulp');
 var myth = require('gulp-myth');
 var csso = require('gulp-csso');
 var serve = require('gulp-serve');
-var exec = require('gulp-exec');
+var mocha = require('gulp-mocha');
 
 // others
-var jest = require('jest-cli');
 var merge = require('merge-stream');
 var del = require('del');
 
@@ -35,15 +33,13 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('.tmp/styles/'));
 });
 
-gulp.task('test', function(callback) {
-    jest.runCLI(
-        {}, './__tests__',
-        function(success) {
-            if (!success) {
-                console.log('test failed');
-            }
-            callback();
-    });
+gulp.task('test', function() {
+    return gulp.src('./test/**/*.js', {
+            read: false
+        })
+        .pipe(mocha({
+            reporter: 'nyan'
+        }));
 });
 
 gulp.task('serve', ['watch'], serve(['.tmp', 'app']));
