@@ -34,12 +34,8 @@ gulp.task('styles', function() {
 });
 
 gulp.task('test', function() {
-    return gulp.src('./test/**/*.js', {
-            read: false
-        })
-        .pipe(mocha({
-            reporter: 'nyan'
-        }));
+    return gulp.src('./test/**/*.js')
+        .pipe(mocha());
 });
 
 gulp.task('serve', ['watch'], serve(['.tmp', 'app']));
