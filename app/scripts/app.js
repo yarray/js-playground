@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
 
     pg.onSelected(function(pageNo) {
-        alert(pageNo);
+        tc.bind([[pageNo, 222, 333]]);
     });
 
     // setTimeout(function() {
