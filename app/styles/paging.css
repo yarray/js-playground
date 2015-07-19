@@ -1,0 +1,7 @@
+[data-control=paging] a {
+    margin: 10px;
+}
+
+[data-control=paging] a.selected {
+    font-weight: bold;
+}
