@@ -27,17 +27,35 @@ PagingControl.prototype.clear = function() {
     );
 };
 
+var calcRange = function(focus, displayed, total) {
+    var half = Math.floor(displayed / 2);
+    var pageMax = Math.min(total, displayed);
+    if (focus - half < 1) {
+        return {
+            start: 1,
+            end: pageMax
+        };
+    }
+    if (focus + half > total) {
+        return {
+            start: total - displayed + 1,
+            end: total
+        };
+    }
+    return {
+        start: focus - half,
+        end: focus + half
+    };
+};
+
 PagingControl.prototype.onSelected = function(handler) {
     var self = this;
     var displayed = this.options.displayed;
 
     this.onSelectedHandler = function(pageNo) {
         self.clear();
-        self.renderPages(
-            Math.max(pageNo - Math.ceil(displayed / 2) + 1, 1),
-            Math.min(pageNo + Math.floor(displayed / 2), self.options.total),
-            pageNo
-        );
+        var range = calcRange(pageNo, displayed, self.options.total);
+        self.renderPages(range.start, range.end, pageNo);
         return handler(pageNo);
     };
 };
