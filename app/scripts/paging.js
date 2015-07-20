@@ -83,6 +83,7 @@ PagingControl.prototype.renderPages = function(start, end, selected) {
 };
 
 PagingControl.prototype.update = function(options) {
+    this.clear();
     this.options = options;
     this.renderPages(1, Math.min(options.total, options.displayed), 1);
 };

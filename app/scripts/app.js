@@ -29,17 +29,20 @@ var fakeAPI = function(pageNo) {
 document.addEventListener("DOMContentLoaded", function(event) {
     var TableControl = require('./table.js');
     var PagingControl = require('./paging.js');
+
     var tc = new TableControl(
         document.getElementById('table'), ['1', '2', '3'], [
             [123, 456, 789],
             [8, 80, 8080]
         ]);
+
     var pg = new PagingControl(
         document.getElementById('paging'), {
             displayed: 11,
             total: 20
         }
     );
+
     tc.onSelected(function(data) {
         alert(data);
     });
